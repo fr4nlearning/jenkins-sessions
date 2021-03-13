@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     environment {
-        REALEASE='0.0.1'
+        RELEASE='0.0.1'
     }
 
     stages {
         stage('Build') {
-            //agent any
+            agent any
             environment {
                 LOG_LEVEL='INFO'
             }
