@@ -1,41 +1,41 @@
-pipeline{
+pipeline {
     agent any
 
-    environment{
+    environment {
         REALEASE='0.0.1'
     }
 
-    stages{
-        stage('Build'){
+    stages {
+        stage('Build') {
             agent any
-            environment{
+            environment {
                 LOG_LEVEL='INFO'
             }
-            steps{
+            steps {
                 echo "Building release ${RELEASE} with log level ${LOG_LEVEL}"
             }
         }
-        stage('Test'){
-            steps{
+        stage('Test') {
+            steps {
                 echo "Testing, release ${RELEASE}"
             }
         }
-        stage('Deploy'){
+        stage('Deploy') {
             input {
                 message 'Deploy?'
                 ok 'Do it!'
-                parameters{
+                parameters {
                     string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: "Target deployment environment")
                 }
             }
-            steps{
+            steps {
                 echo "Deploying release ${RELEASE} to env ${TARGET_ENVIRONMENT}"
             }
         }
     }
 
-    post{
-        always{
+    post {
+        always {
             echo "Print success or failure"
         }
     }
