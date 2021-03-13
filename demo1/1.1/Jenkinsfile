@@ -2,7 +2,7 @@ pipeline{
     agent any
 
     environment{
-        REALEASE='0.0.1'
+        RELEASE='0.0.1'
     }
 
     stages{
