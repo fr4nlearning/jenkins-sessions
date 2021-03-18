@@ -46,7 +46,7 @@ pipeline {
                 expression {
                     return params.RC
                 }
-                steps{
+                steps {
                     archiveArtifacts('01/solution/app/')
                 }
             }
