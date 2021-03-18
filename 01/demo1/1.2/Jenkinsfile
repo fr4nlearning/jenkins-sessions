@@ -46,10 +46,11 @@ pipeline {
                 expression {
                     return params.RC
                 }
-                steps {
-                    archiveArtifacts('01/solution/app/')
-                }
             }
+            steps {
+                archiveArtifacts('01/solution/app/')
+            }
+            
         }
     }
 
