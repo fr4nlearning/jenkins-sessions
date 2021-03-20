@@ -1,0 +1,30 @@
+pipeline{
+    agent {
+        dockerfile {
+            dir('./02/solution')
+        }
+    }
+    stages{
+        stage('Verify'){
+            steps{
+                sh '''
+                    node --version
+                    npm version
+                '''                
+            }
+        }
+        
+        stage('Build') {
+            steps{
+                sh 'docker build -t fran/jenkins-pipeline:0.0.1 .'
+            }
+        }
+        
+        stage('Smoke Test') {
+            steps{
+                sh 'docker run fran/jenkins-pipeline:0.0.1'
+            }
+        }
+    }
+
+}
