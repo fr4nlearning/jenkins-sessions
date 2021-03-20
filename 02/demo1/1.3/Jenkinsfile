@@ -6,7 +6,7 @@ pipeline{
         stage('Build'){
             steps{
                 script{
-                    image= docker.build("fran/jk-pipeline-demos:0.0.1","--pull -f 02/solution/Dockerfile 02/solution")
+                    image= docker.build("fr4ndockering/jk-pipeline-demos:0.0.1","--pull -f 02/solution/Dockerfile 02/solution")
                 }
             }
         }
